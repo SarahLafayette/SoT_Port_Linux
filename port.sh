@@ -7,7 +7,7 @@ printf "\x1B[36m\n\nNow Searching the seas for your Port Number!\n\033[0m"
 
 while true;
 do
-    sudo tcpdump -i any dst portrange 30000-31000 -q -n -c 10 -A >/tmp/SoT.txt 2>/dev/null
+    sudo tcpdump -i any dst portrange 30000-31000 -q -n -c 25 -A >/tmp/SoT.txt 2>/dev/null
     port="sort -k 12 -u /tmp/SoT.txt | grep -Eo ".30...:" | cut -b 2,3,4,5,6"
     portnum=$(eval "$port")
     clear
